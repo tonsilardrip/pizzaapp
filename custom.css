@@ -1,0 +1,20 @@
+body {
+    background-color: #9F000F;
+}
+
+h1 {
+    background-color:  #D1D0CE;
+    text-align: center;
+}
+
+p {
+    background-color: #8090C2;
+    text-align: center;
+}
+
+.emphasis {
+			background-color: #D1D0CE;
+		}
+		.deemphasis {
+			background-color: #9F000F;
+		}

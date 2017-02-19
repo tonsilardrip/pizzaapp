@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html ng-app="local_storage_app">
+  <head>
+    <title>Pizza Selector</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="custom.css">
+  </head>
+  <body ng-controller="MainController as mc">
+    <h1>Pizza Builder</h1>
+    <h3>List of Pizzas you've created</h3>
+    <ul ng-if="mc.pizzas != null">
+      <li ng-repeat="p in mc.pizzs" 
+		  ng-mouseenter="mc.emphasis(true, $event)" 
+		  ng-mouseleave="mc.emphasis(false, $event)"
+		  ng-class="mc.background"
+		  id="p{{$index}}">
+		  
+        {{p.crust}} {{p.firstTopping}} {{p.secondTopping}} {{p.thirdTopping}}
+		[<label for="remove">Remove</label>
+		<input name="remove" type="checkbox"  ng-click="mc.remove($index)">]
+      </li>
+    </ul>
+    <form>
+      <select ng-model='mc.crust' 
+					ng-options='c as c for c in mc.crusters'>
+    			<option value="" disabled>Select crust</option>
+  		</select>
+      <br />
+      <br />
+      <select ng-model='mc.firstTopping' 
+					ng-options='t as t for t in mc.deliciousTopping'>
+    			<option value="" disabled>Select a topping</option>
+  		</select>
+      <br />
+      <br />
+      <select ng-model='mc.secondTopping' 
+					ng-options='t as t for t in mc.deliciousTopping'>
+    			<option value="" disabled>Select a topping</option>
+  		</select>
+      <br />
+      <br />
+      <select ng-model='mc.thirdTopping' 
+					ng-options='t as t for t in mc.deliciousTopping'>
+    			<option value="" disabled>Select a topping</option>
+  		</select>
+      <br />
+      <br />
+      <input type="button" value="update" ng-click="mc.update(mc.crust, mc.firstTopping, mc.secondTopping, mc.thirdTopping)" /> 
+    </form>
+    <script src="https://code.angularjs.org/1.6.2/angular.min.js"></script> 
+    <script src="app.js"></script>
+  </body>
+</html>
